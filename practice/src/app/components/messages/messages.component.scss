@@ -12,8 +12,9 @@ h2 {
   padding: 1rem;
   border-radius: 4px;
   font-size: 1rem;
-}
-.clear:hover {
-  color: white;
-  background-color: #42545c;
+
+  &:hover {
+    color: white;
+    background-color: #42545c;
+  }
 }

@@ -36,6 +36,10 @@ a {
   order: 0;
   flex: 0 1 auto;
   align-self: auto;
+
+  &:hover {
+    background-color: #000;
+  }
 }
 
 @media (min-width: 600px) {
@@ -43,8 +47,4 @@ a {
     width: 18%;
     box-sizing: content-box;
   }
-}
-
-a:hover {
-  background-color: #000;
 }

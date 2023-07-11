@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../interfaces/hero';
-import { HEROES } from '../mocks/mock-heroes';
-import { HeroService } from '../services/hero/hero.service';
-import { MessageService } from '../services/mesage/message.service';
+import { Hero } from 'src/app/interfaces/hero';
+import { HeroService } from 'src/app/services/hero/hero.service';
+import { MessageService } from 'src/app/services/mesage/message.service';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-heroes',
@@ -16,7 +22,9 @@ export class HeroesComponent implements OnInit {
   constructor(
     private heroService: HeroService,
     private messageService: MessageService
-  ) {}
+  ) {
+    console.log('Create Hero Component');
+  }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -29,5 +37,20 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes().subscribe((data) => (this.heroes = data));
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+    this.heroService.addHero({ name } as Hero).subscribe((hero) => {
+      this.heroes.push(hero);
+    });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter((h) => h !== hero);
+    this.heroService.deleteHero(hero.id).subscribe();
   }
 }
