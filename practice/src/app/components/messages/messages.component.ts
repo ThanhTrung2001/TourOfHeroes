@@ -5,6 +5,7 @@ import { MessageService } from 'src/app/services/mesage/message.service';
   selector: 'app-messages',
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.scss'],
+  providers: [],
 })
 export class MessagesComponent {
   constructor(public messageService: MessageService) {}
