@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Hero } from 'src/app/interfaces/hero';
 import { HeroService } from 'src/app/services/hero/hero.service';
 import { MessageService } from 'src/app/services/mesage/message.service';
+import { Location } from '@angular/common';
 import {
   trigger,
   state,
@@ -9,19 +10,22 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { InMemoryDataService } from 'src/app/services/InMemoryData/in-memory-data.service';
 
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss'],
+  providers: [],
 })
-export class HeroesComponent implements OnInit {
+export class HeroesComponent implements OnInit, OnDestroy {
   heroes: Hero[] = [];
   selectedHero?: Hero;
   //dependency injection service into component
   constructor(
     private heroService: HeroService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private location: Location
   ) {
     console.log('Create Hero Component');
   }
@@ -29,10 +33,18 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void {
     this.getHeroes();
   }
+
+  ngOnDestroy(): void {
+    console.log('Destroy component');
+  }
   //can null
   onSelect(hero: Hero) {
     this.selectedHero = hero;
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
   getHeroes(): void {

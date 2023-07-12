@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Hero } from 'src/app/interfaces/hero';
 import { HEROES } from 'src/app/mocks/mock-heroes';
@@ -6,9 +6,13 @@ import { HEROES } from 'src/app/mocks/mock-heroes';
 @Injectable({
   providedIn: 'root',
 })
-export class InMemoryDataService implements InMemoryDbService {
+export class InMemoryDataService implements InMemoryDbService, OnDestroy {
   constructor() {
     console.log('Create MockAPI InStance');
+  }
+
+  ngOnDestroy(): void {
+    alert('Destroy service');
   }
   createDb() {
     const heroes = HEROES;

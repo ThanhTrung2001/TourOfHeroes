@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Hero } from '../../interfaces/hero';
 import { HEROES } from '../../mocks/mock-heroes';
 //Handle Return Object, Subcribe
@@ -12,7 +12,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class HeroService {
+export class HeroService implements OnDestroy {
   private heroesUrl = 'api/heroes'; // URL to web api
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -22,6 +22,10 @@ export class HeroService {
     private messageService: MessageService
   ) {
     console.log('Create Hero Service InStance');
+  }
+
+  ngOnDestroy(): void {
+    alert('Destroy service');
   }
 
   getHeroes(): Observable<Hero[]> {
