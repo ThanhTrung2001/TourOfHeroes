@@ -15,6 +15,7 @@ import { InMemoryDataService } from './services/InMemoryData/in-memory-data.serv
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroSearchComponent } from './components/heroes/hero-search/hero-search.component';
 import { MessageService } from './services/mesage/message.service';
+import { TestServiceService } from './services/test/test-service.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { MessageService } from './services/mesage/message.service';
       dataEncapsulation: false,
     }),
   ],
-  providers: [MessageService],
+  providers: [MessageService, TestServiceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -11,12 +11,13 @@ import {
   transition,
 } from '@angular/animations';
 import { InMemoryDataService } from 'src/app/services/InMemoryData/in-memory-data.service';
+import { TestServiceService } from 'src/app/services/test/test-service.service';
 
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss'],
-  providers: [],
+  providers: [TestServiceService],
 })
 export class HeroesComponent implements OnInit, OnDestroy {
   heroes: Hero[] = [];
@@ -25,7 +26,8 @@ export class HeroesComponent implements OnInit, OnDestroy {
   constructor(
     private heroService: HeroService,
     private messageService: MessageService,
-    private location: Location
+    private location: Location,
+    private testService: TestServiceService
   ) {
     console.log('Create Hero Component');
   }

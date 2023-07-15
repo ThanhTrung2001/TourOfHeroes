@@ -25,7 +25,7 @@ export class HeroService implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    alert('Destroy service');
+    localStorage.setItem('log', 'Destroy service');
   }
 
   getHeroes(): Observable<Hero[]> {
