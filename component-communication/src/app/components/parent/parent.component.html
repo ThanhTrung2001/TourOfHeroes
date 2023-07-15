@@ -1,0 +1,31 @@
+<h2>Parent To Setter</h2>
+<input type="text" [(ngModel)]="messageToSetter" />
+<h2>Parent To Child with ngOnChanges</h2>
+<input type="number" [(ngModel)]="count" />
+<button (click)="childComponent.logAnything()">Call Child Method</button>
+<app-children
+  [messageFromParent]="messageToSetter"
+  [message]="parentTransferData"
+  (dataEvent)="receiveData($event)"
+  [count]="count"
+  #childComponent
+></app-children>
+<h1>Output Data from Children</h1>
+<p>Data Receive form Output Children : {{ childDataReceive }}</p>
+<h1>Service Transfer</h1>
+<p>{{ message }}</p>
+<h1>ViewChild</h1>
+
+<app-view-child #viewchild></app-view-child>
+
+<button type="button" (click)="printViewChildLog()">
+  Print View Child Log
+</button>
+<app-content-child>
+  <footer>
+    <p>Selector2</p>
+  </footer>
+  <header>
+    <p>Selector1</p>
+  </header>
+</app-content-child>

@@ -1,0 +1,11 @@
+<h1>Input Transfer from Parent</h1>
+<p>Data transfer : {{ message }}</p>
+<h1>Transfer to Setter</h1>
+<p>{{ messageFromParent }}</p>
+<h1>ngOnchange Value catch from Parent</h1>
+<p>Count {{ count }}</p>
+<h1>Log in child from Parent</h1>
+<p>{{ logChild }}</p>
+<h1>Output- Emit Data to Parent</h1>
+<button type="button" (click)="sendDataToParent()">Send Data to parent</button>
+<button type="button" (click)="sendMessage()">Send Data through Service</button>
