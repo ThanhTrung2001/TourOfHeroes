@@ -11,6 +11,9 @@ import { SmartComponent } from './components/smart/smart.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from './shared/shared.module';
+import { ShareAModule } from './shared/share-a/share-a.module';
+import { ShareBModule } from './shared/share-b/share-b.module';
 
 @NgModule({
   declarations: [AppComponent, SmartComponent, PresentationComponent],
@@ -20,7 +23,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     AppRoutingModule,
     ServiceModule,
-    //if routed -> not import these modules below, and import servicemodule for 2 of these
+    SharedModule,
+    //if routed & lazy loading -> not import these modules below, and import servicemodule for 2 of these
     // BooklistModule,
     // BookdetailModule,
   ],

@@ -1,5 +1,5 @@
 <h1>BookList</h1>
-<!-- <app-bookwidget></app-bookwidget> -->
+<app-bookwidget></app-bookwidget>
 <ul class="book-list" *ngFor="let book of books">
   <li>
     <a class="book-item" routerLink="/bookdetail/{{ book.id }}">
@@ -7,3 +7,6 @@
     </a>
   </li>
 </ul>
+<h1></h1>
+<button (click)="loadComponent()">Load Component</button>
+<ng-container #container></ng-container>
