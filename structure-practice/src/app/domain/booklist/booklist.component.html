@@ -1,0 +1,9 @@
+<h1>BookList</h1>
+<!-- <app-bookwidget></app-bookwidget> -->
+<ul class="book-list" *ngFor="let book of books">
+  <li>
+    <a class="book-item" routerLink="/bookdetail/{{ book.id }}">
+      <span class="name">{{ book.name }}</span>
+    </a>
+  </li>
+</ul>
