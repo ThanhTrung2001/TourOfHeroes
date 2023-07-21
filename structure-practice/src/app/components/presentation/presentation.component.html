@@ -1,7 +1,0 @@
-<p>presentation works!</p>
-<div *ngFor="let book of books">
-  <a class="book-item" routerLink="/bookdetail/{{ book.id }}">
-    <span class="name">{{ book.name }}</span>
-  </a>
-  <button type="button" (click)="deleteBook(book)">Delete</button>
-</div>

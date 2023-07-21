@@ -1,0 +1,5 @@
+<p>presentation works!</p>
+<div *ngFor="let book of books">
+  <app-book-widget id="{{ book.id }}" name="{{ book.name }}"></app-book-widget>
+  <button type="button" (click)="deleteBook(book)">Delete</button>
+</div>
