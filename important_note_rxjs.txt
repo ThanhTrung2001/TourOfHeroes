@@ -1,0 +1,5 @@
+forkjoin, zip
+defer
+finallize
+share, sharereplay
+hot & cold observable

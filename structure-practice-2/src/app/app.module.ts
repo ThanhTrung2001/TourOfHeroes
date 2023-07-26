@@ -12,6 +12,8 @@ import { PresentationComponentComponent } from './components/presentation-compon
 import { SharedModule } from './shared/shared.module';
 import { WidgetModule } from './shared/components/book-widget/widget.module';
 import { BookWidgetComponent } from './shared/components/book-widget/book-widget.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { RxjsModule } from './rxjs/rxjs.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { BookWidgetComponent } from './shared/components/book-widget/book-widget
     ServiceModule,
     WidgetModule,
     SharedModule,
-    BookDetailModule,
+    RxjsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../service/books.service';
 import { Book } from 'src/app/core/models/book';
 import { LogService } from 'src/app/shared/services/log.service';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
@@ -20,7 +21,10 @@ export class BookListComponent implements OnInit {
   }
 
   getBookList(): void {
-    this.booksService.getBooks().subscribe((data) => (this.books = data));
+    this.booksService
+      .getBooks()
+      .pipe()
+      .subscribe((data) => (this.books = data));
     this.logService.logAnything();
   }
 }
